@@ -40,7 +40,16 @@
 
 \usepackage{multicol}
 
-\definecolor{LightGray}{gray}{0.8}
+\usepackage{draftwatermark}
+\usepackage{transparent}
+
+\SetWatermarkText{\transparent{.05}\includegraphics{logo_020}} %essayer avec 0.1 et 0.08
+\SetWatermarkAngle{0}
+\SetWatermarkScale{1.41}
+
+
+
+\definecolor{LightGray}{gray}{.8}
 \setlength\parindent{0cm}
 
 
@@ -78,7 +87,7 @@
 	\verb!\usepackage{textcomp}!& Symboles supplémentaires\\\hline
 	\verb!\usepackage[margin=1in]{geometry}! & Gestion des marges\\\hline
 	\verb!\usepackage{graphicx}! & Gestion des images\\\hline
-	\verb!\usepackage{xcolor}! & Gestion des colonnes\\\hline
+	\verb!\usepackage{xcolor}! & Gestion des couleurs\\\hline
 	\verb!\usepackage{array}! & Gestion améliorée des tableaux\\\hline
 	\verb!\usepackage{multirow}! & Gestion améliorée des colonnes \\\hline
 	\verb!\usepackage{fancyhdr}! & Gestion des en-têtes \\\hline
@@ -121,7 +130,7 @@
     \verb!  blabla & bla & blabla\\\hline! & \\
     \verb!  bla & blabla & bla\\! & \\
     \verb!\end{tabular}! & \\\hline
-    \multicolumn{2}{|c|}{\textit{Pour tout tableau non trivial, go:} \url{www.tablesgenerator.com}}\\\hline
+    \multicolumn{2}{|c|}{\textit{Pour tout tableau non trivial :} \url{www.tablesgenerator.com}}\\\hline
     \verb!\begin{center}! & \multirow{2}{*}{Environnement centré} \\
     \verb!\end{center}! & \\\hline
     \verb!\begin{flushright}! & \multirow{2}{*}{Environnement aligné à droite} \\
@@ -161,6 +170,8 @@
 \end{multicols}
 
 \newpage
+\vspace{1cm}
+\
 \begin{multicols}{2}
 \section*{Pour faire des maths}
 
@@ -189,13 +200,13 @@
     \verb!\cos \sin \tan \ln \log \lim! & $\cos \ \sin \ \tan \ \ln \ \log \ \lim$ \\\hline
     \verb!\forall \exists \nexists! & $\forall \ \exists \ \nexists$ \\\hline
     \verb!\leftarrow \Leftarrow! & $\leftarrow \ \Leftarrow$\\\hline
-    \verb!\rightarrow \Rightarrow! & $\leftarrow \ \Leftarrow$\\\hline
+    \verb!\rightarrow \Rightarrow! & $\rightarrow \ \Rightarrow$\\\hline
     \verb!\leftrightarrow \Leftrightarrow! & $\leftrightarrow \ \Leftrightarrow$\\\hline
     \verb!\nearrow \searrow! & $\nearrow \ \searrow$\\\hline
     \verb!\in \notin \subset \supset! & $\in \ \notin \ \subset \ \supset$\\\hline
     \verb!\leqslant \geqslant \ll \gg! & $\leqslant \ \geqslant \ \ll \ \gg$\\\hline
     \verb!\sim \approx \simeq \neq! & $\sim \ \approx \ \simeq \ \neq$\\\hline
-    \verb!\partial \nabla \gamma \Gamma! & $\partial \ \hbar \ \gamma \ \Gamma$ (pareil pour toute lettre grecque)\\\hline
+    \verb!\partial \nabla \gamma \Gamma! & $\partial \ \nabla \ \gamma \ \Gamma$ (pareil pour toute lettre grecque)\\\hline
     \verb!\infty \propto \hbar \emptyset! & $\infty \ \propto \ \hbar \ \emptyset$\\\hline
 \end{tabular}
 
@@ -203,7 +214,7 @@
 \section*{Pour aller plus loin}
 
 \subsection*{Edition locale}
-Pour pouvoir écrire sur son propre PC sans internet, pour Windows nous te conseillons \href{https://miktex.org/}{MiKTeX} qui est installé avec son propre éditeur. Sous Linux, Texlive est un package classique.
+Pour pouvoir écrire sur ton propre PC sans internet, pour Windows nous te conseillons \href{https://miktex.org/}{MiKTeX} qui est installé avec son propre éditeur. Sous Linux, Texlive est un package classique.
 
 Pour un éditeur plus modulable, nous te conseilons \href{https://atom.io/}{Atom} ou \href{https://www.sublimetext.com/}{Sublime Text}, qui fonctionnent avec MiKTeX et Texlive.
 
@@ -212,22 +223,22 @@ Pour un éditeur plus modulable, nous te conseilons \href{https://atom.io/}{Atom
 Pour inclure une image il faut le paquet : \verb?\usepackage{graphicx}? et ensuite procèder ainsi : \\
 \verb?\begin{figure}[?\emph{option}\verb?]? \\
 \verb?\begin{center}? \\
-\verb?\includegraphics[scale=? \emph{fraction} \verb?]{?\emph{chemin d'accès à l'image}\verb?}? \\
+\verb?\includegraphics[width=X\textwidth]{?\emph{chemin d'accès à l'image}\verb?}? \\
 \verb?\caption{?\emph{légende}\verb?}? \\
 \verb?\end{center}? \\
 \verb?\end{figure}? \\
 
-On peut utiliser \verb?\begin{figure}[H]? en option pour que l'image soit plus près de la position dans le code.
+On peut utiliser \verb?\begin{figure}[h]? en option pour que l'image soit plus près de la position dans le code (avec \verb!\usepackage{float}! et l'option \verb?\begin{figure}[H]?, on est encore plus précis).
 
-\rule{\textwidth}{.5pt}
+\rule{.4936\textwidth}{.5pt}
 \vspace{-.5cm}
 \subsection*{Code informatique}
 Il est également possible d'inclure du code dans un fichier \LaTeX \ grâce au paquet \verb?\usepackage{listings}? et aux commandes suivantes : \\
 
-\noindent \verb?\lstset{language=? \emph{nom de langage} \verb?}? \\
+\noindent \verb?\lstset{language=python}? \\
 \verb?\begin{lstlisting}? \\
 \verb!for i in range (0: N) :! \\
-\phantom{plop}X[i] = methode(X[i - 1]) \\
+\verb!    X[i] = methode(X[i - 1])! \\
 \verb?\end{lstlisting}? \\
 
 \noindent Cela va inclure le code ainsi :
@@ -240,15 +251,16 @@ for i in range (0: N):
 
 Il existe de nombreuses options pour ajouter la coloration syntaxique, encadrer le code, numéroter les lignes, chercher sur Internet est une bonne solution.
 
-Le package \verb?\usepackage{minted}? possède une configuration de base plus colorée, mais a besoin d'une configuration Latex plus poussée.
+Le package \verb?\usepackage{minted}? possède une configuration de base plus colorée mais a besoin d'une configuration de compilation Latex plus poussée.
 
-\rule{\textwidth}{.5pt}
+\rule{.4936\textwidth}{.5pt}
 
 \subsection*{Liens utiles}
 \begin{itemize}
 	\item \url{tex.stackexchange.com}
 	\item \url{www.sharelatex.com/learn/}
 	\item \url{www.google.com}
+  \item \url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}
 \end{itemize}
 
 \end{multicols}
