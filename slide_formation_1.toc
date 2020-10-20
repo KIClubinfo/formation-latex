@@ -1,0 +1,6 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Créer un premier document \LaTeX }{5}{0}{2}
+\beamer@sectionintoc {3}{Mise en forme}{10}{0}{3}
+\beamer@sectionintoc {4}{Ecrire des mathématiques}{13}{0}{4}
+\beamer@sectionintoc {5}{Présenter ses résultats}{20}{0}{5}

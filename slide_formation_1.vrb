@@ -1,0 +1,8 @@
+\frametitle{Inclure des images}
+Importer le paquet \texttt{graphicx}.\\[11pt]
+\verb|\begin{figure}[h!]|\\
+\verb|\label{mon_image}|\\
+\verb|\centering|\\
+\verb|\includegraphics[scale=x]{chemin/vers/mon/image.png}|\\
+\verb|\caption{Ma légende}|\\
+\verb|\end{figure}|
